@@ -9,9 +9,10 @@ import { setemails } from "../app/slice"
  useEffect(()=>{
        const fetchemails =async()=>{
         try {
-            const res =await axios.get("http://localhost:8080/api/email/getallemail",{
-                withCredentials:true
-            })
+            const res = await axios.get(`${window.location.origin}/api/email/getallemail`, {
+                withCredentials: true,
+            });
+            if(!res.data.emails) return false
             dispatch(setemails(res.data.emails))
             
         } catch (error) {

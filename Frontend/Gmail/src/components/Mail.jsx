@@ -15,10 +15,12 @@ import {
 import { toast } from "react-toastify";
 
 import { useNavigate, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { setemails } from "../app/slice";
 
 const Mail = () => {
+  const dispatch=useDispatch()
   const navigate = useNavigate();
   const params = useParams();
   const { emails } = useSelector((state) => state.z);
@@ -31,8 +33,10 @@ const Mail = () => {
       );
 
       toast.success(res.data.message);
-      navigate("/");
-      window.location.reload();
+      
+     const updatedemails=emails.filter((email)=>email._id !== params.id)
+     dispatch(setemails(updatedemails))
+     navigate("/");
     } catch (error) {
       console.log(error);
     }

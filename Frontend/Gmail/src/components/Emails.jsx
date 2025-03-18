@@ -3,11 +3,14 @@ import Usegetallemails from "../hooks/usegetallemails"
 import Email from "./Email"
 import { useEffect, useState } from "react";
 const Emails = () => {
-  Usegetallemails();
-
-  const {emails,searchText}= useSelector(store=>store.z)
-  const [filterdemail,setfilteredemail]=useState(emails)
+  Usegetallemails()
+ const {emails,searchText}= useSelector(store=>store.z)
+  const [filterdemail,setfilteredemail]=useState()
   useEffect(()=>{
+      if(!emails){
+        setfilteredemail([])
+         return
+      }
         const filterdemail=emails.filter((email)=>{
           
           return email.subject.toLowerCase().includes(searchText.toLowerCase()) || email.to.toLowerCase().includes(searchText.toLowerCase()) || email.message.toLowerCase().includes(searchText.toLowerCase())

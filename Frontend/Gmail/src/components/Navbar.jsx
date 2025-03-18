@@ -7,43 +7,50 @@ import { TbGridDots } from "react-icons/tb";
 import Avatar from "react-avatar";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { setAuthuser, setsearchText } from "../app/slice";
+import { clearemails, setAuthuser, setsearchText } from "../app/slice";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
+
 const Navbar = () => {
-  const dispatch=useDispatch()
-  const navigate = useNavigate()
-  const [text, settext] = useState('');
-  const { user } = useSelector((store) => store.z);
-  const searchtext=useSelector(store=>store.z.searchText)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [text, settext] = useState("");
+  const { user,emails } = useSelector((store) => store.z);
+  const searchtext = useSelector((store) => store.z.searchText);
   console.log(searchtext);
-  
- 
 
   useEffect(() => {
     dispatch(setsearchText(text));
-    
-    
   }, [text]);
-  const logoouthandler=async()=>{
-         
+  const logoutHandler = async () => {
+    try {
+      const res = await axios.post(
+        "http://localhost:8080/api/user/logoout",
+        {},
+        { withCredentials: true }
+      );
 
-       try {
-        const res= await axios.post("http://localhost:8080/api/user/logoout")
-        toast.success(res.data.message)
-        if(res.data.success){
-          
-          navigate('/login')
-        }
-        dispatch(setAuthuser(null))
+      if (res.data.success) {
+        console.log("before logout",emails);
         
-       } catch (error) {
-         console.log(error);
-         
-       }
-  }
+        dispatch(clearemails());
+        console.log("after clearing email",emails);
+        
+        dispatch(setAuthuser(null));
+        toast.success("Logged out successfully");
+        console.log(emails);
+        
+        setTimeout(() => {
+          navigate('/login')
+        }, 100);
+      }
+    } catch (error) {
+      console.error("Logout error:", error);
+      toast.error("Logout failed");
+    }
+  };
   return (
     <div className="flex items-center justify-between mx-3 h-16">
       <div className="flex items-center gap-10">
@@ -89,10 +96,14 @@ const Navbar = () => {
               <TbGridDots size={"25px"} />
             </div>
             <div className=" flex items-center justify-center">
-            <span onClick={logoouthandler} className=" underline cursor-pointer ml-0.5">Logout</span>
+              <span
+                onClick={logoutHandler}
+                className=" underline cursor-pointer ml-0.5"
+              >
+                Logout
+              </span>
             </div>
             <div>
-              
               <Avatar
                 className="px-1"
                 src={user.ProfilePhoto}
@@ -100,7 +111,6 @@ const Navbar = () => {
                 round={true}
               />
             </div>
-            
           </div>
         </>
       )}

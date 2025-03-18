@@ -1,7 +1,13 @@
 import { MdCropSquare } from "react-icons/md";
 import { IoMdStarOutline } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { clearemails } from "../app/slice";
 const Email = ({ email }) => {
+  const dispatch=useDispatch()
+  const handleclear=()=>{
+          dispatch(clearemails())
+  }
   const navigate = useNavigate();
   const openmail = () => {
     navigate(`/mail/${email._id}`);
@@ -20,6 +26,7 @@ const Email = ({ email }) => {
 
   return (
     <div className="flex   border-b mx-0 border-b-gray-200 px-5 py-3 text-small hover:cursor-pointer gap-2 hover:bg-gray-100 ">
+      <button onClick={handleclear}>clear all emails</button>
       <div className="py-0.5">
         <MdCropSquare size={"20px"} />
       </div>

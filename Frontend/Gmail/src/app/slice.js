@@ -38,6 +38,13 @@ const slice = createSlice({
         },
         setsearchText:(state,action)=>{
           state.searchText=action.payload
+        },
+        clearemails:(state)=>{
+            console.log('before cler',state.emails);
+            
+           state.emails= []
+           console.log("after clearing",state.emails);
+           
         }
         
     
@@ -47,5 +54,5 @@ const slice = createSlice({
     name:'z'
 })
 export default slice.reducer;
-export const {increment,decrement,incrementbyvalue,reset,remove,closemail,setAuthuser,setemails,setsearchText}= slice.actions
+export const {increment,decrement,incrementbyvalue,reset,remove,closemail,setAuthuser,setemails,setsearchText,clearemails}= slice.actions
 

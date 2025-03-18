@@ -19,11 +19,11 @@ const createemail= async(req,res)=>{
 const deleteemail= async(req,res)=>{
 
     const emailid = req.params.id
-    if(!emailid) res.status(401).json({message:' id required',success:"false"})
+    if(!emailid) return res.status(401).json({message:' id required',success:"false"})
      
         const email= await emailx.findByIdAndDelete(emailid)
     
-      if(!email) res.status(201).json({messgae:"email is not available"})
+      if(!email) return res.status(201).json({messgae:"email is not available"})
        return res.status(200).json({message:'email deleted successfully'})
 
 }
