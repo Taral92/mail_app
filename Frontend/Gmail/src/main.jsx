@@ -6,7 +6,7 @@ import Counter from './app/Counter.jsx'
 import { Provider } from "react-redux";
 import store from "./app/store.js";
 import { PersistGate } from "redux-persist/integration/react";
-import persistStore from "redux-persist/es/persistStore";
+
 import  { persistor } from "./app/store";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
