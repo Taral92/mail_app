@@ -8,6 +8,7 @@ import { MdExpandMore } from "react-icons/md";
 import Sendemail from "./Sendemail";
 import { useDispatch, useSelector } from "react-redux";
 import { remove } from "../app/slice";
+import { useNavigate } from "react-router-dom";
 
 const sidebaritems = [
   {
@@ -36,6 +37,7 @@ const sidebaritems = [
   },
 ];
 const Sidebar = () => {
+  const navigate=useNavigate()
   const rii = useSelector((state) => {
     return state.z.value2;
   });
@@ -51,6 +53,7 @@ const Sidebar = () => {
           <LuPencil size={"25px"} />
           Compose
         </button>
+        <button onClick={navigate('/login')}>login</button>
 
         <div className="text-gray-500 px-2  py-2 ">
           {sidebaritems.map((items, index) => (
@@ -72,3 +75,27 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
