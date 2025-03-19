@@ -1,7 +1,7 @@
 
 
 import { useSelector } from "react-redux";
-import Usegetallemails from "../hooks/usegetallemails";
+import Usegetallemails from "../hooks/Usegetallemails";
 import Email from "./Email";
 import { useEffect, useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
