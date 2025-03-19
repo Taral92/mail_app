@@ -1,0 +1,7 @@
+[build]
+  base = "/frontend/Gmail"
+  command = "npm run build"
+  publish = "/frontend/Gmail/dist"
+
+[functions]
+  directory = "/frontend/netlify/functions"
