@@ -7,5 +7,8 @@ dotenv.config()
 
 export default defineConfig({
   plugins: [react(),tailwindcss()],
- base:'./'
+ base:'./',
+ build:{
+  outDir:'dist'
+ }
 })
