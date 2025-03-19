@@ -1,11 +1,13 @@
+import { useNavigate } from "react-router-dom"
 import { increment,decrement,incrementbyvalue,reset } from "./slice"
 import {useDispatch,useSelector} from 'react-redux'
 const Counter = () => {
   const count = useSelector((state)=>state.z.value)
   const dispatch=useDispatch()
-
+ const navigate =useNavigate()
   return (
     <div>
+      <h1 onClick={navigate('/')}>login</h1>
       <h1>{count}</h1>
       <button onClick={()=>dispatch(increment())}>+</button>
       <button onClick={()=>dispatch(decrement())}>-</button>
