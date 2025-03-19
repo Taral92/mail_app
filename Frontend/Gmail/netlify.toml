@@ -1,5 +1,5 @@
 [build]
-  base = "/"
+  base = "Frontend/Gmail"
   command = "npm run build"
   publish = "dist"
 
