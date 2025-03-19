@@ -20,7 +20,7 @@ import axios from "axios";
 import { setemails } from "../app/slice";
 
 const Mail = () => {
-  const dispatch=useDispatch()
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const params = useParams();
   const { emails } = useSelector((state) => state.z);
@@ -33,10 +33,10 @@ const Mail = () => {
       );
 
       toast.success(res.data.message);
-      
-     const updatedemails=emails.filter((email)=>email._id !== params.id)
-     dispatch(setemails(updatedemails))
-     navigate("/");
+
+      const updatedemails = emails.filter((email) => email._id !== params.id);
+      dispatch(setemails(updatedemails));
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -49,7 +49,10 @@ const Mail = () => {
     <div className="flex-1 items-center rounded-xl mx-5 my-1 bg-white">
       <div className="flex justify-between items-center px-4">
         <div className="flex items-center gap-2 text-gray-800 py-2">
-          <div onClick={openmail} className="p-2 rounded-full hover:bg-gray-200 hover:cursor-pointer">
+          <div
+            onClick={openmail}
+            className="p-2 rounded-full hover:bg-gray-200 hover:cursor-pointer"
+          >
             <IoMdArrowBack />
           </div>
           <div className="p-2 rounded-full hover:bg-gray-200 hover:cursor-pointer">
@@ -58,7 +61,10 @@ const Mail = () => {
           <div className="p-2 rounded-full hover:bg-gray-200 hover:cursor-pointer">
             <MdOutlineReport />
           </div>
-          <div onClick={deletehandler} className="p-2 rounded-full hover:bg-gray-200 hover:cursor-pointer">
+          <div
+            onClick={deletehandler}
+            className="p-2 rounded-full hover:bg-gray-200 hover:cursor-pointer"
+          >
             <MdDeleteOutline />
           </div>
           <div className="p-2 rounded-full hover:bg-gray-200 hover:cursor-pointer">
@@ -87,7 +93,9 @@ const Mail = () => {
         <div className="flex justify-between bg-white items-center gap-1">
           <div className="flex items-center gap-2">
             <h1 className="text-xl font-medium">{selectedemail?.subject}</h1>
-            <span className="text-small bg-gray-200 rounded-md px-2">Inbox</span>
+            <span className="text-small bg-gray-200 rounded-md px-2">
+              Inbox
+            </span>
           </div>
           <div className="flex-none text-gray-200 text-sm">
             <p>12 days ago</p>
