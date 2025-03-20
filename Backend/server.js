@@ -12,7 +12,7 @@ app.use(express.json())
 app.use(cookieparser())
 app.use(express.urlencoded({extended:true}))
 const coreoptions= {
-    origin:'http://localhost:5173','https://taralxxxxx.netlify.app/',
+    origin:['http://localhost:5173','https://taralxxxxx.netlify.app/'],
     credentials:true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: ["Content-Type", "Authorization"],
