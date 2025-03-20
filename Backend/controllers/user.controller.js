@@ -1,5 +1,5 @@
 const { userModel } = require("../models/Usermodel");
-const bcrypt = require("bcrypt");
+const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cookie = require("cookie");
 const register = async (req, res) => {
@@ -14,7 +14,7 @@ const register = async (req, res) => {
         .status(400)
         .json({ message: "user already exists", success: false });
 
-    const hashpassword = await bcrypt.hash(password, 10);
+    const hashpassword = await bcryptjs.hash(password, 10);
     const ProfilePhoto = "https://avatar.iran.liara.run/public/boy";
     await userModel.create({
       fullname,
@@ -49,7 +49,7 @@ const login = async (req, res) => {
         .status(401)
         .json({ message: "Incorrect email or password", success: false });
 
-    const ispasswordmatch = await bcrypt.compare(password, user.password);
+    const ispasswordmatch = await bcryptjs.compare(password, user.password);
     if (!ispasswordmatch)
       return res
         .status(201)
