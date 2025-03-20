@@ -44,7 +44,7 @@ const Sidebar = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="lg:h-[100vh] sm:h-[100vh] md:h-[100vh]  py-1">
+    <div className="lg:h-[100%] sm:h-[100%] md:h-[100%]  py-1">
       <div className="px-3">
         <button
           onClick={() => dispatch(remove())}
