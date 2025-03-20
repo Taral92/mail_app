@@ -20,7 +20,7 @@ const Sendemail = () => {
   const submithandler=async(e)=>{
          e.preventDefault();
          try {
-          const res = await axios.post("https://taralxxxxx.netlify.app/api/email/create",formdata,{
+          const res = await axios.post("https://mail-app-lkkb.onrender.com/api/email/create",formdata,{
             headers:{
               "Content-Type":"application/json"
             },

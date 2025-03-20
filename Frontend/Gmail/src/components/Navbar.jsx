@@ -27,7 +27,7 @@ const Navbar = () => {
   const logoutHandler = async () => {
     try {
       const res = await axios.post(
-        "https://taralxxxxx.netlify.app/api/user/logoout",
+        "https://mail-app-lkkb.onrender.com/api/user/logoout",
         {},
         { withCredentials: true }
       );
