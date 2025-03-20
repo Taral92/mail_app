@@ -44,7 +44,7 @@ const Sidebar = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="lg:h-full sm:h-full md:h-[] lg:w-full sm:w-full md:w-full  py-1">
+    <div className="lg:w-1/4 sm:h-full md:w-1/3 h-full w-full sm:w-full  py-1">
       <div className="px-3">
         <button
           onClick={() => dispatch(remove())}
@@ -59,7 +59,7 @@ const Sidebar = () => {
           {sidebaritems.map((items, index) => (
             <>
               <button
-                className="hover:bg-gray-200 rounded-r-full flex px-2 py-2 items-center gap-3"
+                className="hover:bg-gray-200 rounded-r-full flex px-2 py-2 items-center gap-3 w-full"
                 key={index}
               >
                 {items.icon}

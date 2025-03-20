@@ -32,7 +32,7 @@ const inboxicons = [
 const Inbox = () => {
   const [selected, setselected] = useState(0);
   return (
-    <div className="flex-1  rounded-xl mx-5 py-1 lg:w-[85%] sm:w-[85%] md:w-[85%] ">
+    <div className="flex-1  rounded-xl mx-5 py-1 lg:w-[85%] sm:w-full md:w-[85%] ">
       <div className="flex items-center  px-4 gap-3">
         <div className="flex items-center gap-2 ">
           <IoMdSquareOutline size={"20px"} />
@@ -60,7 +60,7 @@ const Inbox = () => {
                 selected === index
                   ? "border-b-4 border-b-blue-400 text-blue-500"
                   : "border-b-transparent"
-              } flex w-52 p-4 hover:bg-gray-200 items-center gap-2 cursor-pointer`}
+              } flex w-full sm:w-52 p-4 hover:bg-gray-200 items-center gap-2 cursor-pointer`}
               key={index}
             >
               {items.icon}

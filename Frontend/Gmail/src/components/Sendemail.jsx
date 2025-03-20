@@ -43,7 +43,7 @@ const Sendemail = () => {
      const isopen = useSelector((state)=>state.z.value2)
      
     return(
-      <div className={ `${isopen ? 'fixed':'hidden'} w-[450px] min-h-[450px] rounded-md bottom-10 right-10 z-[999999] lg:w-[30%] sm:w-[30%] md:w-[30%]   pointer-events-auto p-5   bg-white shadow-xl shadow-slate-600`}>
+      <div className={ `${isopen ? 'fixed':'hidden'} w-full sm:w-[450px]   rounded-md bottom-10 right-10 z-[999999] lg:w-[30%]  md:w-[30%] min-h-[450px]   pointer-events-auto p-5   bg-white shadow-xl shadow-slate-600`}>
         <div className=" flex bg-[#F2F6FC] rounded-md px-3 py-2 justify-between items-center">
           <div className="">
             <h1>New Message</h1>
@@ -56,7 +56,7 @@ const Sendemail = () => {
           <input onChange={changehandler} value={formdata.to} name="to" type="text" placeholder="Subject"/>
           <input onChange={changehandler} value={formdata.subject} name="subject" type="text" placeholder="To"/>
           <textarea  value={formdata.message} name="message" className="outline-none" autoFocus rows={'10'} cols={'30'}onChange={changehandler}></textarea>
-          <button type="submit" onClick={submithandler} className="bg-blue-900 text-white rounded-full w-fit py-2 px-3">Send</button>
+          <button type="submit" onClick={submithandler} className="bg-blue-900 text-white rounded-full w-fit py-2 px-3 self-end ">Send</button>
         </form>
       </div>
     )
