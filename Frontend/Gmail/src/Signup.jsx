@@ -43,7 +43,7 @@ const Signup = () => {
     <div className="flex lg:w-[50%] sm:w-[50%] md:w-[50%] items-center justify-center w-screen h-screen">
       <form
         onSubmit={submithandler}
-        className="flex flex-col gap-1 bg-white p-3 w-[20%] shadow-lg rounded-md"
+        className="flex flex-col lg:w-[50%] sm:w-[50%] md:w-[50%] gap-1 bg-white p-3 shadow-lg rounded-md"
       >
         <h1 className="text-black uppercase font-bold text-xl">Create New Account</h1>
         
