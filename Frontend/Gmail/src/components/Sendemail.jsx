@@ -43,7 +43,7 @@ const Sendemail = () => {
      const isopen = useSelector((state)=>state.z.value2)
      
     return(
-      <div className={ `${isopen ? 'fixed':'hidden'} w-[450px] min-h-[450px] rounded-md bottom-10 right-10 z-[999999]   pointer-events-auto p-5   bg-white shadow-xl shadow-slate-600`}>
+      <div className={ `${isopen ? 'fixed':'hidden'} w-[450px] min-h-[450px] rounded-md bottom-10 right-10 z-[999999] lg:w-[30%] sm:w-[30%] md:w-[30%]   pointer-events-auto p-5   bg-white shadow-xl shadow-slate-600`}>
         <div className=" flex bg-[#F2F6FC] rounded-md px-3 py-2 justify-between items-center">
           <div className="">
             <h1>New Message</h1>

@@ -32,7 +32,7 @@ const inboxicons = [
 const Inbox = () => {
   const [selected, setselected] = useState(0);
   return (
-    <div className="flex-1 rounded-xl mx-5 py-1 ">
+    <div className="flex-1  rounded-xl mx-5 py-1 lg:w-[85%] sm:w-[85%] md:w-[85%] ">
       <div className="flex items-center  px-4 gap-3">
         <div className="flex items-center gap-2 ">
           <IoMdSquareOutline size={"20px"} />
