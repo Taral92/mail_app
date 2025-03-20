@@ -39,7 +39,7 @@ const Navbar = () => {
         console.log("after clearing email",emails);
         
         dispatch(setAuthuser(null));
-        toast.success("Logged out successfully");
+        toast.success("User Logged out successfully");
         console.log(emails);
         
         setTimeout(() => {
