@@ -22,7 +22,7 @@ const Login = () => {
     console.log(input);
     try {
       const res = await axios.post(
-        "http://localhost:8080/api/user/login",
+        "https://mail-app-lkkb.onrender.com/api/user/login",
         input,
         {
           headers: {
