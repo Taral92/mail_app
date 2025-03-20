@@ -28,7 +28,7 @@ const Mail = () => {
   const deletehandler = async () => {
     try {
       const res = await axios.delete(
-        `http://localhost:8080/api/email/delete/${params.id}`,
+        `https://taralxxxxx.netlify.app/api/email/delete/${params.id}`,
         { withCredentials: true }
       );
 

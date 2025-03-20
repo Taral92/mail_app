@@ -27,7 +27,7 @@ const Navbar = () => {
   const logoutHandler = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:8080/api/user/logoout",
+        "https://taralxxxxx.netlify.app/api/user/logoout",
         {},
         { withCredentials: true }
       );
