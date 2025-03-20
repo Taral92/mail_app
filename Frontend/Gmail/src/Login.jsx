@@ -46,7 +46,7 @@ const Login = () => {
     <div className="flex items-center  justify-center w-screen h-screen bg-gray-100">
       <form
         onSubmit={loginHandler}
-        className="flex flex-col gap-3 lg:w-[100%] sm:w-[100%] md:w-[100%] bg-white p-6 w-[22%] shadow-lg rounded-lg border border-gray-300"
+        className="flex flex-col gap-3 lg:w-[22%] sm:w-[22%] md:w-[22%] bg-white p-6 w-[22%] shadow-lg rounded-lg border border-gray-300"
       >
         <h1 className="text-gray-800 text-center font-bold text-2xl uppercase">
           Login

@@ -40,7 +40,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex items-center justify-center w-screen h-screen">
+    <div className="flex lg:w-[50%] sm:w-[50%] md:w-[50%] items-center justify-center w-screen h-screen">
       <form
         onSubmit={submithandler}
         className="flex flex-col gap-1 bg-white p-3 w-[20%] shadow-lg rounded-md"
