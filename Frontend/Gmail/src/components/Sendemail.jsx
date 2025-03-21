@@ -5,6 +5,7 @@ import { useState } from "react";
 import axios from 'axios'
 import {toast} from 'react-toastify'
 import { setemails } from "../app/slice";
+import Speechtotext from '../components/Speechtotext'
 
 const Sendemail = () => {
   const {emails}=useSelector(state=>state.z)
@@ -46,6 +47,7 @@ const Sendemail = () => {
       <div className={ `${isopen ? 'fixed':'hidden'} w-full sm:w-[450px]   rounded-md bottom-10 right-10 z-[999999] lg:w-[30%]  md:w-[30%] min-h-[450px]   pointer-events-auto p-5   bg-white shadow-xl shadow-slate-600`}>
         <div className=" flex bg-[#F2F6FC] rounded-md px-3 py-2 justify-between items-center">
           <div className="">
+            <Speechtotext onTextChange={setformdata}/>
             <h1>New Message</h1>
           </div>
           <div onClick={()=>dispatch(closemail())}className="p-2 rounded-full">
