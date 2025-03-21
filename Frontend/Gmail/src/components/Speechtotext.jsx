@@ -18,7 +18,7 @@ const Speechtotext = ({ setformdata }) => {
     recognition.onstart = () => setIsListening(true);
     recognition.onresult = (event) => {
       const transcript = event.results[0][0].transcript;
-      setformdata(prev => ({ ...prev, message: prev.message + " " + transcript })); // Append text
+      setformdata(prev => ({ ...prev, message: prev.message + " " + transcript })); 
     };
 
     recognition.onend = () => setIsListening(false);
