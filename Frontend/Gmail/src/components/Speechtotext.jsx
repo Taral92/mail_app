@@ -1,15 +1,12 @@
 import { useState } from "react";
 
-const VoiceToText = ({ onTextChange }) => {
-  const [text, setText] = useState("");
+const Speechtotext = ({ setformdata }) => {
   const [isListening, setIsListening] = useState(false);
 
   const startListening = () => {
-    const SpeechRecognition =
-      window.SpeechRecognition || window.webkitSpeechRecognition; // ✅ Fix: Use webkitSpeechRecognition for Safari & Brave
-
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!SpeechRecognition) {
-      alert("Speech recognition is not supported in this browser.");
+      alert("Speech Recognition not supported in this browser. Please use Chrome.");
       return;
     }
 
@@ -21,37 +18,20 @@ const VoiceToText = ({ onTextChange }) => {
     recognition.onstart = () => setIsListening(true);
     recognition.onresult = (event) => {
       const transcript = event.results[0][0].transcript;
-      setText(transcript);
-      if (onTextChange) onTextChange(transcript); // ✅ Fix: Ensure onTextChange is called only if defined
+      setformdata(prev => ({ ...prev, message: prev.message + " " + transcript })); // Append text
     };
 
     recognition.onend = () => setIsListening(false);
-    recognition.onerror = (event) =>
-      console.error("Speech Recognition Error:", event);
+    recognition.onerror = (event) => console.error("Speech Error:", event);
 
     recognition.start();
   };
 
   return (
-    <div className="p-4 border rounded-lg shadow-md w-80">
-      <textarea
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        className="w-full p-2 border rounded"
-        placeholder="Speak or type your message..."
-        rows="4"
-      ></textarea>
-      <button
-        onClick={startListening}
-        className={`mt-2 px-4 py-2 rounded ${
-          isListening ? "bg-gray-500" : "bg-blue-500"
-        } text-white`}
-        disabled={isListening} // ✅ Fix: Prevent multiple clicks while listening
-      >
-        🎙 {isListening ? "Listening..." : "Start Voice Input"}
-      </button>
-    </div>
+    <button onClick={startListening} className="bg-gray-200 p-2 rounded-md">
+      🎤 {isListening ? "Listening..." : "Voice Input"}
+    </button>
   );
 };
 
-export default VoiceToText;
+export default Speechtotext;
