@@ -35,7 +35,7 @@ const Speechtotext = ({ setformdata }) => {
 
   return (
     <button onClick={startListening} className="bg-gray-200 p-2 rounded-md">
-      <IoMdMic size={'10px'}/> {isListening ? "Listening..." : "Voice Input"}
+      <IoMdMic size={'10px'}/> {isListening ? "..." : ""}
     </button>
   );
 };
