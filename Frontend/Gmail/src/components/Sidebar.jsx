@@ -48,7 +48,7 @@ const Sidebar = () => {
       <div className="px-3">
         <button
           onClick={() => dispatch(remove())}
-          className=" flex items-center gap-2 p-3 hover:shadow-md rounded-2xl cursor-pointer"
+          className=" bg-blue-300 flex items-center gap-2 p-3 hover:shadow-md rounded-2xl cursor-pointer"
         >
           <LuPencil size={"25px"} />
           Compose
