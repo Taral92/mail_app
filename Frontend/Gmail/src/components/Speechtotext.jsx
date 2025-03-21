@@ -5,7 +5,15 @@ const VoiceToText = ({ onTextChange }) => {
   const [isListening, setIsListening] = useState(false);
 
   const startListening = () => {
-    const recognition = new window.SpeechRecognition();
+    const SpeechRecognition =
+      window.SpeechRecognition || window.webkitSpeechRecognition; // ✅ Fix: Use webkitSpeechRecognition for Safari & Brave
+
+    if (!SpeechRecognition) {
+      alert("Speech recognition is not supported in this browser.");
+      return;
+    }
+
+    const recognition = new SpeechRecognition();
     recognition.continuous = false;
     recognition.interimResults = false;
     recognition.lang = "en-US";
@@ -14,10 +22,12 @@ const VoiceToText = ({ onTextChange }) => {
     recognition.onresult = (event) => {
       const transcript = event.results[0][0].transcript;
       setText(transcript);
-      onTextChange(transcript); // Pass text to parent
+      if (onTextChange) onTextChange(transcript); // ✅ Fix: Ensure onTextChange is called only if defined
     };
+
     recognition.onend = () => setIsListening(false);
-    recognition.onerror = (event) => console.error("Speech Error:", event);
+    recognition.onerror = (event) =>
+      console.error("Speech Recognition Error:", event);
 
     recognition.start();
   };
@@ -33,7 +43,10 @@ const VoiceToText = ({ onTextChange }) => {
       ></textarea>
       <button
         onClick={startListening}
-        className="mt-2 px-4 py-2 bg-blue-500 text-white rounded"
+        className={`mt-2 px-4 py-2 rounded ${
+          isListening ? "bg-gray-500" : "bg-blue-500"
+        } text-white`}
+        disabled={isListening} // ✅ Fix: Prevent multiple clicks while listening
       >
         🎙 {isListening ? "Listening..." : "Start Voice Input"}
       </button>
