@@ -5,6 +5,7 @@ import { RiGeminiFill } from "react-icons/ri";
 const Email = ({ email, category }) => {
   const navigate = useNavigate();
 
+  
   const openMail = () => {
     navigate(`/mail/${email._id}`);
   };
